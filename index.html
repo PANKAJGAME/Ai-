@@ -51,11 +51,11 @@
             
             <!-- Header -->
             <div class="text-center mb-6">
-                <span class="bg-pink-500/20 text-pink-400 text-xs font-semibold px-3 py-1 rounded-full border border-pink-500/30">✨ AI Powered Vibe Bot</span>
+                <span class="bg-pink-500/20 text-pink-400 text-xs font-semibold px-3 py-1 rounded-full border border-pink-500/30">✨ Smart Vibe Bot</span>
                 <h1 id="mainTitle" class="text-2xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-pink-500">
                     Desi Roast & Vibe
                 </h1>
-                <p id="subTitle" class="text-gray-400 text-xs mt-1">बिना किसी झंझट के पाएं मजेदार AI रोस्ट! 😂</p>
+                <p id="subTitle" class="text-gray-400 text-xs mt-1">बिना किसी झंझट के पाएं मजेदार रोस्ट! 😂</p>
             </div>
 
             <!-- Input Form -->
@@ -138,8 +138,61 @@
         <p>© 2026 aivibebot.com — All Rights Reserved.</p>
     </footer>
 
-    <!-- Frontend Script -->
+    <!-- Smart Dynamic Client-Side Generator Script -->
     <script>
+        const questionPools = {
+            hinglish: {
+                savage: [
+                    "{name}, भाई तू जब ऑनलाइन आता है, तो इंटरनेट भी सोचता होगा कि 'आज फिर एक और लीजेंड आ गया टाइम वेस्ट करने!' 💀🔥",
+                    "{name} भाई, तेरी पर्सनालिटी ऐसी है कि गूगल मैप्स भी तेरी लोकेशन देखने के बाद रास्ता भूल जाता है! 🗺️😂",
+                    "{name}, अगर ओवरथिंकिंग पर गोल्ड मेडल मिलता, तो तू ओलंपिक का अकेला विनर होता! 🏆🥱",
+                    "{name} भाई, तेरी शक्ल देखकर ऐसा लगता है जैसे भगवान ने तुझे बनाते वक्त कहा हो— 'चल आज कुछ कॉमेडी ट्राई करते हैं!' 😭🔥",
+                    "{name}, तू दुनिया का इकलौता ऐसा इंसान है जिसकी बैटरी 100% होने पर भी दिमाग 0% चलता है! 🔋📉"
+                ],
+                mild: [
+                    "{name}, तू है तो बहुत प्यारा, बस कभी-कभी लगता है कि तेरा दिमाग साइलेंट मोड पर चल रहा है! 🍰✨",
+                    "{name} भाई, तेरी मासूमियत देखकर कभी-कभी तरस आता है कि तुझे इस जालिम दुनिया से बचाऊँ कैसे! 🤗💖",
+                    "{name}, तू लेट लतीफी का ऐसा रिकॉर्ड बनाता है कि यमराज भी तेरी फाइल खोलकर बैठ जाते हैं! 🐢😂",
+                    "{name} भाई, तेरी दोस्ती और वाई-फाई का कोई भरोसा नहीं, कब गायब हो जाएं पता ही नहीं चलता! 📶😜"
+                ],
+                praise: [
+                    "भाई {name}, तेरी स्माइल और स्वैग ऐसा है कि सामने वाला बिना इम्प्रेस हुए रह ही नहीं सकता! 👑🔥",
+                    "{name}, तू बंदा नहीं, बल्कि मार्केट का सबसे बड़ा लीजेंड है भाई! 🌟🚀",
+                    "तेरी यारी और पॉजिटिविटी देखकर दिन बन जाता है {name}! 💯✨",
+                    "{name}, तू वो इंसान है जिसकी मौजूदगी से ही महफिल में चार चांद लग जाते हैं! 🌠👑"
+                ],
+                breakup: [
+                    "{name}, तेरा सिंगल रहना ही देश और दुनिया के हित में सबसे बड़ा दान है भाई! 💔😂",
+                    "मोहब्बत के बाजार में {name} का हाल उस फोन जैसा है जिसका डिस्प्ले तो सही है पर नेटवर्क ही नहीं आ रहा! 📱🥀",
+                    "{name} भाई, तू प्यार के चक्कर में मत पड़, वरना आशिकी कम और मीम्स ज्यादा बनेंगे तेरे! 📉💔",
+                    "प्यार में धोखा खाने के बाद {name} अब सीधे भगवान भरोसे अपनी जिंदगी चला रहा है! 🚩😂"
+                ]
+            },
+            english: {
+                savage: [
+                    "{name}, when you walk into a room, even the Wi-Fi signal decides to disconnect out of pure respect! 💀🔥",
+                    "{name}, your brain cells are running on Internet Explorer from 2005! 🌐😂",
+                    "{name}, if laziness was an Olympic sport, you’d win gold without even getting off the couch! 🛋️🥇",
+                    "{name}, you look like the kind of person who reads the instruction manual on a toothpaste tube! 🧴💀"
+                ],
+                mild: [
+                    "{name}, you're a great friend, but your decision-making skills give Netflix better drama than reality TV! 🍿✨",
+                    "{name}, you have the sweet energy of a golden retriever who has absolutely no idea what's going on! 🐶💖",
+                    "{name}, you're living proof that you don't need a single thought behind those eyes to look confident! 👀😂"
+                ],
+                praise: [
+                    "{name}, your absolute vibe and energy are unmatched anywhere in the entire universe! 👑🔥",
+                    "{name}, you're out here dropping pure goals while everyone else is still figuring out life! 🌟🚀",
+                    "{name}, absolute main character energy right here! Keep shining bright. 💫💯"
+                ],
+                breakup: [
+                    "{name}, staying single is your superpower because dating apps are not ready for your chaos! 💔😂",
+                    "Your love life is like a software update—it keeps getting postponed indefinitely, {name}! 💻🥀",
+                    "{name}, you don't need a Valentine, you need a software reset and a large pizza! 🍕🔥"
+                ]
+            }
+        };
+
         function switchLanguage() {
             const lang = document.getElementById('langSelect').value;
             const mainTitle = document.getElementById('mainTitle');
@@ -155,7 +208,7 @@
 
             if (lang === 'english') {
                 mainTitle.innerText = "Global AI Vibe Bot";
-                subTitle.innerText = "Get the funniest, most brutal AI roasts instantly! 🔥";
+                subTitle.innerText = "Get the funniest, most brutal smart roasts instantly! 🔥";
                 labelName.innerText = "Friend's Name or Nickname:";
                 labelMood.innerText = "Select Vibe / Mood:";
                 nameInput.placeholder = "e.g., John, The Gym Bro...";
@@ -166,7 +219,7 @@
                 copyText.innerText = "Copy";
             } else {
                 mainTitle.innerText = "Desi Roast & Vibe";
-                subTitle.innerText = "बिना किसी झंझट के पाएं मजेदार AI रोस्ट! 😂";
+                subTitle.innerText = "बिना किसी झंझट के पाएं मजेदार रोस्ट! 😂";
                 labelName.innerText = "दोस्त का नाम या निकनेम:";
                 labelMood.innerText = "मूड चुनें (Mood):";
                 nameInput.placeholder = "उदा. राहुल, शर्मा जी का बेटा...";
@@ -188,7 +241,7 @@
             }
         }
 
-        async function generateRoast() {
+        function generateRoast() {
             const name = document.getElementById('friendName').value.trim();
             let vibe = document.getElementById('vibeType').value;
             const lang = document.getElementById('langSelect').value;
@@ -201,43 +254,40 @@
                 return;
             }
 
-            // अगर यूजर ने कस्टम चुना है, तो इनपुट वाला टेक्स्ट वाइब में ले लेंगे
-            if (vibe === 'custom') {
-                const customInput = document.getElementById('customVibeText').value.trim();
-                if (customInput !== "") {
-                    vibe = customInput;
-                } else {
-                    alert(lang === 'english' ? "Please enter your custom vibe text!" : "कृपया अपना कस्टम वाइब टेक्स्ट दर्ज करें!");
-                    return;
-                }
-            }
-
             resultCard.classList.remove('hidden');
             actionButtons.classList.add('hidden');
-            outputText.innerText = lang === 'english' ? "🤖 AI is cooking up a fresh vibe... Hold tight! ⚡" : "🤖 आपका नया रोस्ट तैयार हो रहा है... थोड़ा इंतज़ार करें! ⚡";
+            outputText.innerText = lang === 'english' ? "🤖 Smart Vibe is cooking up a fresh line... Hold tight! ⚡" : "🤖 आपका नया रोस्ट तैयार हो रहा है... थोड़ा इंतज़ार करें! ⚡";
 
-            try {
-                const response = await fetch('/api/roast', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, vibe, lang })
-                });
-
-                const data = await response.json();
-                
-                if (data.reply) {
-                    outputText.innerText = `"${data.reply}"`;
+            setTimeout(() => {
+                let pool;
+                if (vibe === 'custom') {
+                    const customInput = document.getElementById('customVibeText').value.trim();
+                    if (customInput === "") {
+                        alert(lang === 'english' ? "Please enter your custom vibe text!" : "कृपया अपना कस्टम वाइब टेक्स्ट दर्ज करें!");
+                        resultCard.classList.add('hidden');
+                        return;
+                    }
+                    if (lang === 'english') {
+                        outputText.innerText = `"${name}, regarding your topic '${customInput}': Absolutely legendary chaos happening right here! 💀🔥"`;
+                    } else {
+                        outputText.innerText = `"${name}, आपके इस खास टॉपिक '${customInput}' पर तो भाई इतिहास लिखा जाना चाहिए! 😂🔥"`;
+                    }
                     actionButtons.classList.remove('hidden');
-                } else {
-                    outputText.innerText = `"${name}, AI is taking a coffee break. Try again! 😂"`;
-                    actionButtons.classList.add('hidden');
+                    return;
                 }
 
-            } catch (error) {
-                console.error("Error:", error);
-                outputText.innerText = `"${name}, failed to connect to the server! 💀"`;
-                actionButtons.classList.add('hidden');
-            }
+                // Standard Mood Pools
+                const langPool = questionPools[lang] || questionPools['hinglish'];
+                pool = langPool[vibe] || langPool['savage'];
+
+                // Random selection ensuring dynamic feel
+                const randomIndex = Math.floor(Math.random() * pool.length);
+                let selectedTemplate = pool[randomIndex];
+                let finalReply = selectedTemplate.replace(/{name}/g, name);
+
+                outputText.innerText = `"${finalReply}"`;
+                actionButtons.classList.remove('hidden');
+            }, 600);
         }
 
         function downloadStoryImage() {
@@ -264,7 +314,7 @@
             ctx.fillStyle = '#facc15';
             ctx.font = 'bold 50px Poppins, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('🔥 AI VIBE CHECK 🔥', canvas.width / 2, 380);
+            ctx.fillText('🔥 SMART VIBE CHECK 🔥', canvas.width / 2, 380);
 
             ctx.fillStyle = '#ffffff';
             ctx.font = '600 44px Poppins, sans-serif';
