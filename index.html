@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Vibe & Roast Bot - Unlimited AI Edition 🔥</title>
+    <title>AI Vibe & Shayari Bot 🔥</title>
     
-    <meta property="og:title" content="AI Vibe & Roast Bot - Desi Edition 🔥" />
-    <meta property="og:description" content="100% अनलिमिटेड और फ्रेश AI रोस्ट! अभी ट्राई करें। 😂" />
+    <!-- Open Graph / Social Media Preview Meta Tags -->
+    <meta property="og:title" content="AI Vibe & Shayari Bot 🔥" />
+    <meta property="og:description" content="बिना किसी झंझट के पाएं मजेदार AI रोस्ट और अनलिमिटेड शायरियां! अभी ट्राई करें। 😂" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aivibebot.com" />
     
+    <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="AI Vibe & Roast Bot - Desi Edition 🔥" />
-    <meta name="twitter:description" content="100% अनलिमिटेड और फ्रेश AI रोस्ट! 😂" />
+    <meta name="twitter:title" content="AI Vibe & Shayari Bot 🔥" />
+    <meta name="twitter:description" content="बिना किसी झंझट के पाएं मजेदार AI रोस्ट और अनलिमिटेड शायरियां! 😂" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -35,24 +37,28 @@
 </head>
 <body class="bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 text-white min-h-screen flex flex-col justify-between p-4">
 
+    <!-- Top Right Language Switcher (Hindi & English) -->
     <div class="w-full flex justify-end max-w-md mx-auto mb-2">
         <select id="langSelect" onchange="switchLanguage()" class="bg-gray-900 text-xs text-pink-400 border border-pink-500/30 px-3 py-1.5 rounded-full focus:outline-none cursor-pointer">
-            <option value="hinglish">🇮🇳 Hinglish / Desi</option>
-            <option value="english">🇺🇸 Global English</option>
+            <option value="hindi">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="english">🇺🇸 English</option>
         </select>
     </div>
 
+    <!-- Main Container -->
     <div class="flex-grow flex items-center justify-center">
         <div class="max-w-md w-full glass-box rounded-3xl shadow-2xl p-6 relative overflow-hidden">
             
+            <!-- Header -->
             <div class="text-center mb-6">
-                <span class="bg-pink-500/20 text-pink-400 text-xs font-semibold px-3 py-1 rounded-full border border-pink-500/30">✨ 100% Unlimited AI Bot</span>
+                <span class="bg-pink-500/20 text-pink-400 text-xs font-semibold px-3 py-1 rounded-full border border-pink-500/30">✨ AI Powered Bot</span>
                 <h1 id="mainTitle" class="text-2xl font-bold mt-2 text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-pink-500">
-                    Desi Roast & Vibe
+                    शायरी और रोस्ट ज़ोन
                 </h1>
-                <p id="subTitle" class="text-gray-400 text-xs mt-1">हर बार बिल्कुल नई और अनलिमिटेड AI शायरी! 😂</p>
+                <p id="subTitle" class="text-gray-400 text-xs mt-1">बिना किसी झंझट के पाएं अनलिमिटेड शायरियां और AI रोस्ट! 😂</p>
             </div>
 
+            <!-- Input Form -->
             <div class="space-y-4">
                 <div>
                     <label id="labelName" class="block text-xs font-medium text-gray-300 mb-1">दोस्त का नाम या निकनेम:</label>
@@ -61,48 +67,57 @@
                 </div>
 
                 <div>
-                    <label id="labelMood" class="block text-xs font-medium text-gray-300 mb-1">मूड चुनें (Mood):</label>
+                    <label id="labelMood" class="block text-xs font-medium text-gray-300 mb-1">मोड चुनें (Mode):</label>
                     <select id="vibeType" onchange="checkCustomVibe()" class="w-full px-4 py-3 bg-gray-900/80 border border-gray-700 rounded-xl focus:outline-none focus:border-pink-500 text-sm text-white">
-                        <option value="savage">🌶️ खतरनाक रोस्ट (Savage Mode)</option>
+                        <option value="shayari">📖 अनलिमिटेड शायरी (Unlinked Shayari)</option>
+                        <option value="savage">🌶️ खतरनाक रोस्ट (Savage Roast)</option>
                         <option value="mild">🍰 हल्की-फुल्की खिंचाई (Mild Roast)</option>
                         <option value="praise">👑 तारीफों के पुल (Vibe Check)</option>
                         <option value="breakup">💔 ब्रेकअप स्पेशल (Sarcastic)</option>
-                        <option value="custom">✍️ कुछ अपना लिखें (Custom Vibe)</option>
+                        <option value="custom">✍️ कुछ अपना लिखें (Custom Topic)</option>
                     </select>
                 </div>
 
+                <!-- Custom Vibe Input Box (Hidden by default) -->
                 <div id="customVibeContainer" class="hidden">
                     <label id="labelCustom" class="block text-xs font-medium text-pink-400 mb-1">अपनी पसंद का टॉपिक या सिचुएशन लिखें:</label>
                     <input type="text" id="customVibeText" placeholder="उदा. सुबह जल्दी उठने का नाटक करने वाला..." 
                         class="w-full px-4 py-3 bg-gray-900/80 border border-pink-500/50 rounded-xl focus:outline-none focus:border-pink-500 text-sm text-white placeholder-gray-500">
                 </div>
 
-                <button onclick="generateAI_Roast()" id="btnText"
+                <button onclick="generateContent()" id="btnText"
                     class="w-full py-3.5 bg-gradient-to-r from-pink-500 via-purple-500 to-amber-500 text-white font-bold rounded-xl shadow-lg hover:opacity-95 transition transform active:scale-95 text-sm animated-btn flex items-center justify-center gap-2">
-                    <span>⚡</span> <span id="btnLabelText">AI मैजिक देखें</span>
+                    <span>⚡</span> <span id="btnLabelText">मैजिक देखें</span>
                 </button>
             </div>
 
+            <!-- Output Result Box -->
             <div id="resultCard" class="hidden mt-6 p-4 bg-black/40 border border-pink-500/30 rounded-2xl text-center relative shadow-inner">
                 <p id="outputText" class="text-sm font-medium text-gray-200 leading-relaxed italic mb-4"></p>
                 
                 <canvas id="shareCanvas" class="hidden"></canvas>
 
+                <!-- Professional Action Buttons -->
                 <div id="actionButtons" class="hidden flex flex-col gap-2.5">
+                    <!-- HD Story Download Button -->
                     <button onclick="downloadStoryImage()" class="w-full py-2.5 bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white text-xs font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-md">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                         <span id="downloadText">स्टोरी कार्ड डाउनलोड करें (HD)</span>
                     </button>
 
+                    <!-- Official Brand Share Grid -->
                     <div class="grid grid-cols-3 gap-2">
+                        <!-- WhatsApp -->
                         <button onclick="shareOnWhatsApp()" class="py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow">
                             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                             <span>WhatsApp</span>
                         </button>
+                        <!-- X / Twitter -->
                         <button onclick="shareOnTwitter()" class="py-2.5 bg-slate-900 hover:bg-black text-white text-[11px] font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow border border-slate-700">
                             <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                             <span>X / Twitter</span>
                         </button>
+                        <!-- Copy Button -->
                         <button onclick="copyResult()" class="py-2.5 bg-gray-800 hover:bg-gray-700 text-white text-[11px] font-semibold rounded-xl transition flex items-center justify-center gap-1.5 shadow">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                             <span id="copyText">कॉपी</span>
@@ -114,6 +129,7 @@
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="w-full text-center py-4 text-xs text-gray-500 border-t border-gray-800 mt-6">
         <div class="flex justify-center gap-4 mb-2">
             <a href="#" onclick="alert('This tool is strictly for entertainment purposes only.')" class="hover:text-gray-400">Disclaimer</a>
@@ -123,7 +139,26 @@
         <p>© 2026 aivibebot.com — All Rights Reserved.</p>
     </footer>
 
+    <!-- Frontend Script -->
     <script>
+        // अनलिमिटेड और नॉन-रिपीटिंग शायरी डेटाबेस (आप इसमें और भी जोड़ सकते हैं)
+        const shayariList = [
+            "न जाने कौन सा रिश्ता है इन आँखों का तुमसे, देखे बिना तुम्हें चैन ही नहीं आता।",
+            "फर्क होता है खुदा और यार में, फर्क होता है किस्मत और प्यार में।",
+            "तेरी यादों का समंदर कुछ इस तरह है, कि डूब जाऊँ तो भी साँसें चलती रहती हैं।",
+            "ख्वाहिशें भले ही छोटी हों, लेकिन उन्हें पूरा करने के लिए दिल जिद्दी होना चाहिए।",
+            "वक़्त बदलता है, ज़िंदगी बदलती है, पर अपनों की यादें हमेशा दिल में रहती हैं।",
+            "तलाश ऐसी करो जो कभी न खत्म हो, और भरोसा ऐसा रखो जो कभी न टूटे।",
+            "मुस्कुराना तो हर किसी की आदत है, किसी के दिल में बसना बहुत बड़ी इबादत है।",
+            "हवाओं से कह दो ज़रा संभल कर चलें, मेरे अपनों के दिए हुए दीये बुझ न जाएं।",
+            "जिंदगी जीने के दो ही तरीके हैं, जो पसंद है उसे हासिल कर लो या जो हासिल है उसे पसंद कर लो।",
+            "तन्हाई में मुस्कुराना भी एक कला है, बिना किसी के होने का अहसास ही बहुत बड़ा है।",
+            "लकीरें तो बहुत लंबी हैं हमारी, पर किस्मत, दोस्तों का प्यार देखकर बदल जाती है।",
+            "हर कोई यहाँ दिल जीतने आया है, पर कोई किसी के दिल में ठहर नहीं पाता।"
+        ];
+        
+        let availableShayaris = [...shayariList];
+
         function switchLanguage() {
             const lang = document.getElementById('langSelect').value;
             const mainTitle = document.getElementById('mainTitle');
@@ -138,25 +173,25 @@
             const customVibeText = document.getElementById('customVibeText');
 
             if (lang === 'english') {
-                mainTitle.innerText = "Global AI Vibe Bot";
-                subTitle.innerText = "Get infinite 100% unique AI roasts instantly! 🔥";
+                mainTitle.innerText = "Shayari & Vibe Bot";
+                subTitle.innerText = "Get unlimited shayaris and brutal AI roasts instantly! 🔥";
                 labelName.innerText = "Friend's Name or Nickname:";
-                labelMood.innerText = "Select Vibe / Mood:";
+                labelMood.innerText = "Select Mode:";
                 nameInput.placeholder = "e.g., John, The Gym Bro...";
                 if(labelCustom) labelCustom.innerText = "Enter your custom topic or situation:";
                 if(customVibeText) customVibeText.placeholder = "e.g., Always late to meetings...";
-                btnLabelText.innerText = "Generate AI Vibe ⚡";
+                btnLabelText.innerText = "Generate Magic ⚡";
                 downloadText.innerText = "Download Story Card (HD)";
                 copyText.innerText = "Copy";
             } else {
-                mainTitle.innerText = "Desi Roast & Vibe";
-                subTitle.innerText = "हर बार बिल्कुल नई और अनलिमिटेड AI शायरी! 😂";
+                mainTitle.innerText = "शायरी और रोस्ट ज़ोन";
+                subTitle.innerText = "बिना किसी झंझट के पाएं अनलिमिटेड शायरियां और AI रोस्ट! 😂";
                 labelName.innerText = "दोस्त का नाम या निकनेम:";
-                labelMood.innerText = "मूड चुनें (Mood):";
+                labelMood.innerText = "मोड चुनें (Mode):";
                 nameInput.placeholder = "उदा. राहुल, शर्मा जी का बेटा...";
                 if(labelCustom) labelCustom.innerText = "अपनी पसंद का टॉपिक या सिचुएशन लिखें:";
                 if(customVibeText) customVibeText.placeholder = "उदा. सुबह जल्दी उठने का नाटक करने वाला...";
-                btnLabelText.innerText = "AI मैजिक देखें";
+                btnLabelText.innerText = "मैजिक देखें";
                 downloadText.innerText = "स्टोरी कार्ड डाउनलोड करें (HD)";
                 copyText.innerText = "कॉपी";
             }
@@ -172,38 +207,55 @@
             }
         }
 
-        async function generateAI_Roast() {
+        async function generateContent() {
             const name = document.getElementById('friendName').value.trim();
-            const vibe = document.getElementById('vibeType').value;
+            let vibe = document.getElementById('vibeType').value;
             const lang = document.getElementById('langSelect').value;
             const resultCard = document.getElementById('resultCard');
             const outputText = document.getElementById('outputText');
             const actionButtons = document.getElementById('actionButtons');
-            let customTopic = document.getElementById('customVibeText').value.trim();
 
             if (name === "") {
-                alert(lang === 'english' ? "Please enter a name first! 😉" : "कृपया पहले दोस्त का नाम तो दर्ज करें! 😉");
-                return;
-            }
-
-            if (vibe === 'custom' && customTopic === "") {
-                alert(lang === 'english' ? "Please enter your custom vibe text!" : "कृपया अपना कस्टम वाइब टेक्स्ट दर्ज करें!");
+                alert(lang === 'english' ? "Please enter a name first! 😉" : "कृपया पहले नाम तो दर्ज करें! 😉");
                 return;
             }
 
             resultCard.classList.remove('hidden');
             actionButtons.classList.add('hidden');
-            outputText.innerText = lang === 'english' ? "🤖 AI is crafting a unique roast... ⚡" : "🤖 AI आपके लिए बिल्कुल नई शायरी बना रहा है... ⚡";
 
-            // यदि कस्टम वाइब है तो उसकी टेक्स्ट वैल्यू भेजें
-            const finalVibe = (vibe === 'custom') ? customTopic : vibe;
+            // 1. अगर यूजर ने 'शायरी मोड' चुना है तो बिना रिपीट हुए अनलिमिटेड शायरी देगा
+            if (vibe === 'shayari') {
+                if (availableShayaris.length === 0) {
+                    availableShayaris = [...shayariList]; // लिस्ट खत्म होने पर ऑटोमैटिक रिफ्रेश हो जाएगी
+                }
+                const randomIndex = Math.floor(Math.random() * availableShayaris.length);
+                const selectedShayari = availableShayaris.splice(randomIndex, 1)[0];
 
+                outputText.innerText = `"${name}, ${selectedShayari}"`;
+                actionButtons.classList.remove('hidden');
+                return;
+            }
+
+            // 2. अगर यूजर ने कस्टम टॉपिक चुना है
+            if (vibe === 'custom') {
+                const customInput = document.getElementById('customVibeText').value.trim();
+                if (customInput !== "") {
+                    vibe = customInput;
+                } else {
+                    alert(lang === 'english' ? "Please enter your custom topic!" : "कृपया अपना कस्टम टॉपिक दर्ज करें!");
+                    resultCard.classList.add('hidden');
+                    return;
+                }
+            }
+
+            outputText.innerText = lang === 'english' ? "🤖 AI is generating magic... Hold tight! ⚡" : "🤖 आपका मैजिक तैयार हो रहा है... थोड़ा इंतज़ार करें! ⚡";
+
+            // रोस्ट या अन्य मोड्स के लिए सर्वर कॉल
             try {
-                // यह Vercel के बैकएंड फंक्शन को कॉल करेगा, जिससे कोई CORS या API Key एरर नहीं आएगा
                 const response = await fetch('/api/roast', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: name, vibe: finalVibe, lang: lang })
+                    body: JSON.stringify({ name, vibe, lang })
                 });
 
                 const data = await response.json();
@@ -212,12 +264,14 @@
                     outputText.innerText = `"${data.reply}"`;
                     actionButtons.classList.remove('hidden');
                 } else {
-                    throw new Error("Invalid response from server");
+                    outputText.innerText = `"${name}, AI is taking a coffee break. Try again! 😂"`;
+                    actionButtons.classList.add('hidden');
                 }
+
             } catch (error) {
-                console.error(error);
-                outputText.innerText = lang === 'english' ? "Oops! Something went wrong. Try again!" : "उफ़! कुछ गड़बड़ हो गई। दोबारा कोशिश करें!";
-                actionButtons.classList.remove('hidden');
+                console.error("Error:", error);
+                outputText.innerText = `"${name}, failed to connect to the server! 💀"`;
+                actionButtons.classList.add('hidden');
             }
         }
 
@@ -245,7 +299,7 @@
             ctx.fillStyle = '#facc15';
             ctx.font = 'bold 50px Poppins, sans-serif';
             ctx.textAlign = 'center';
-            ctx.fillText('🔥 AI VIBE CHECK 🔥', canvas.width / 2, 380);
+            ctx.fillText('✨ SHAYARI & VIBE ✨', canvas.width / 2, 380);
 
             ctx.fillStyle = '#ffffff';
             ctx.font = '600 44px Poppins, sans-serif';
@@ -256,7 +310,7 @@
             ctx.fillText('aivibebot.com ✨', canvas.width / 2, 1020);
 
             let link = document.createElement('a');
-            link.download = 'vibe-card.png';
+            link.download = 'shayari-card.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
         }
@@ -287,7 +341,7 @@
 
         function shareOnTwitter() {
             const text = document.getElementById('outputText').innerText;
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text + "\n\nChecked my vibe on aivibebot.com 🔥 @aivibebot")}`;
+            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text + "\n\nChecked this on aivibebot.com 🔥 @aivibebot")}`;
             window.open(twitterUrl, '_blank');
         }
 
