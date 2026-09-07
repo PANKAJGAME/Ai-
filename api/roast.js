@@ -4,7 +4,9 @@ export default async function handler(req, res) {
     }
 
     const { name, vibe, lang } = req.body;
-    const apiKey = process.env.GEMINI_API_KEY;
+    
+    // यहाँ आपकी API Key परमानेंटली जोड़ दी गई है
+    const apiKey = "AQ.Ab8RN6INFMhKYfX7qC5vMqjYZerkp9281MQrqgmdvmOU8LFx2g";
 
     if (!apiKey) {
         return res.status(500).json({ error: 'API Key not configured on server' });
@@ -73,4 +75,3 @@ export default async function handler(req, res) {
         return res.status(500).json({ error: 'Failed to generate content' });
     }
 }
-
