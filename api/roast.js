@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-    // CORS Headers ताकी किसी भी डोमेन से रिक्वेस्ट ब्लॉक न हो
     res.setHeader('Access-Control-Allow-Credentials', true);
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
@@ -19,7 +18,7 @@ export default async function handler(req, res) {
 
     const { name, vibe, lang } = req.body;
     
-    // आपकी नई और सही API Key यहाँ सेट है
+    // आपकी API Key
     const apiKey = "AQ.Ab8RN6ICXtSbQd-9NySI6G1VX-VmT30W2SYYOgrDU1P0PgfafA";
 
     if (!apiKey) {
@@ -61,29 +60,25 @@ export default async function handler(req, res) {
     }
 
     try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        // यहाँ हम सीधे v1 एंडपॉइंट और सही बॉडी स्ट्रक्चर का उपयोग कर रहे हैं
+        const googleResponse = await fetch(`https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 contents: [{
                     parts: [{ text: promptText }]
-                }],
-                generationConfig: {
-                    temperature: 1.0,
-                    maxOutputTokens: 150
-                }
+                }]
             })
         });
 
-        const data = await response.json();
-        
-        // यदि गूगल की तरफ से कोई एरर रिटर्न होता है, तो उसे सीधे स्क्रीन पर दिखाएं ताकि डिबग करना आसान हो
+        const data = await googleResponse.json();
+
         if (data.error) {
-            console.error("Gemini API Error Details:", data.error);
-            return res.status(200).json({ reply: `API Error: ${data.error.message || 'Check API permissions'}` });
+            console.error("Google API Error:", data.error);
+            return res.status(200).json({ reply: `API Error: ${data.error.message}` });
         }
 
-        if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) {
+        if (data.candidates && data.candidates[0].content.parts[0].text) {
             let aiReply = data.candidates[0].content.parts[0].text.trim();
             return res.status(200).json({ reply: aiReply });
         } else {
@@ -91,7 +86,7 @@ export default async function handler(req, res) {
         }
 
     } catch (error) {
-        console.error("Server Fetch Error:", error);
-        return res.status(500).json({ error: 'Failed to generate content' });
+        console.error("Server Error:", error);
+        return res.status(500).json({ error: 'Failed to connect to AI server' });
     }
 }
