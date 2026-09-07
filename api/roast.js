@@ -19,15 +19,14 @@ export default async function handler(req, res) {
 
     const { name, vibe, lang } = req.body;
     
-    // आपकी API Key यहाँ परमानेंटली और सुरक्षित रूप से सेट है
-    const apiKey = "AQ.Ab8RN6INFMhKYfX7qC5vMqjYZerkp9281MQrqgmdvmOU8LFx2g";
+    // आपकी नई और सही API Key यहाँ सेट है
+    const apiKey = "AQ.Ab8RN6ICXtSbQd-9NySI6G1VX-VmT30W2SYYOgrDU1P0PgfafA";
 
     if (!apiKey) {
         return res.status(500).json({ error: 'API Key not configured on server' });
     }
 
     let promptText = "";
-    // 100% अनलिमिटेड और यूनिक रिस्पॉन्स के लिए रैंडम सीड
     const randomSeed = Math.floor(Math.random() * 100000);
     const isStandardVibe = ['savage', 'mild', 'praise', 'breakup'].includes(vibe);
 
@@ -70,7 +69,7 @@ export default async function handler(req, res) {
                     parts: [{ text: promptText }]
                 }],
                 generationConfig: {
-                    temperature: 1.0, // हाई क्रिएटिविटी और नॉन-रिपीटिंग आंसर्स के लिए
+                    temperature: 1.0,
                     maxOutputTokens: 150
                 }
             })
@@ -78,6 +77,12 @@ export default async function handler(req, res) {
 
         const data = await response.json();
         
+        // यदि गूगल की तरफ से कोई एरर रिटर्न होता है, तो उसे सीधे स्क्रीन पर दिखाएं ताकि डिबग करना आसान हो
+        if (data.error) {
+            console.error("Gemini API Error Details:", data.error);
+            return res.status(200).json({ reply: `API Error: ${data.error.message || 'Check API permissions'}` });
+        }
+
         if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0].text) {
             let aiReply = data.candidates[0].content.parts[0].text.trim();
             return res.status(200).json({ reply: aiReply });
@@ -86,7 +91,7 @@ export default async function handler(req, res) {
         }
 
     } catch (error) {
-        console.error("API Error:", error);
+        console.error("Server Fetch Error:", error);
         return res.status(500).json({ error: 'Failed to generate content' });
     }
 }
